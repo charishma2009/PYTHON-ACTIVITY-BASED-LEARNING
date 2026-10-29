@@ -1,65 +1,87 @@
+# Student Performance Trend Analysis Using Python
 
-subjects = input("Enter subject names separated by spaces: ").split()
-n = int(input("Enter number of examinations: "))
+## 1. Problem Statement
 
-if not subjects or n < 2:
-    print("Enter at least one subject and two examinations.")
-else:
-    marks = {}
 
-    for subject in subjects:
-        marks[subject] = []
-        for i in range(n):
-            score = float(input(
-                f"Enter marks in {subject} for Exam {i + 1}: "
-            ))
-            if score < 0 or score > 100:
-                print("Invalid marks! Enter values from 0 to 100.")
-                raise SystemExit
-            marks[subject].append(score)
+## 2. Algorithm
 
-    # Calculate examination averages
-    averages = []
-    for i in range(n):
-        avg = sum(marks[s][i] for s in subjects) / len(subjects)
-        averages.append(avg)
+1. Start the program.
+2. Input the number of subjects and examinations.
+3. Enter the subject names and the marks obtained in each examination.
+4. Calculate the average marks for each examination.
+5. Compare consecutive examination averages to identify improvements or declines.
+6. Check each subject to identify consistently weak performance.
+7. Calculate the overall average marks.
+8. Classify the student:
+   - 80 and above: Excellent
+   - 60 to below 80: Good
+   - 40 to below 60: Average
+   - Below 40: Needs Improvement
+9. Display examination averages, performance trends, weak subjects, and student classification.
+10. Stop the program.
 
-    print("\nEXAMINATION AVERAGES")
-    for i, avg in enumerate(averages):
-        print(f"Exam {i + 1}: {avg:.2f}")
+## 3. Simple Flowchart 
 
-    # Compare examination trends
-    print("\nPERFORMANCE TRENDS")
-    for i in range(1, n):
-        change = averages[i] - averages[i - 1]
-        if change > 0:
-            print(f"Exam {i} to Exam {i + 1}: Improved by {change:.2f}")
-        elif change < 0:
-            print(f"Exam {i} to Exam {i + 1}: Declined by {abs(change):.2f}")
-        else:
-            print(f"Exam {i} to Exam {i + 1}: No change")
+```mermaid
 
-    # Identify consistently weak subjects
-    weak = [
-        s for s in subjects
-        if all(score < 40 for score in marks[s])
-    ]
+flowchart TD
+    A([Start]) --> B[Input subjects and examinations]
+    B --> C[Enter marks for each subject]
+    C --> D[Calculate examination averages]
+    D --> E[Compare consecutive averages]
+    E --> F[Identify weak subjects]
+    F --> G[Calculate overall average]
+    G --> H{Classify student}
+    H --> I[Excellent: 80 and above]
+    H --> J[Good: 60 to below 80]
+    H --> K[Average: 40 to below 60]
+    H --> L[Needs Improvement: below 40]
+    I --> M[Display analysis report]
+    J --> M
+    K --> M
+    L --> M
+    M --> N([Stop])
+```
 
-    print("\nCONSISTENTLY WEAK SUBJECTS")
-    print(", ".join(weak) if weak else "None")
+## 5. Sample Input
 
-    # Calculate overall average and classify
-    overall = sum(averages) / n
+text
 
-    if overall >= 80:
-        category = "Excellent"
-    elif overall >= 60:
-        category = "Good"
-    elif overall >= 40:
-        category = "Average"
-    else:
-        category = "Needs Improvement"
+```
+Enter subject names separated by spaces: Maths Science English
+Enter number of examinations: 3
+Enter marks in Maths for Exam 1: 70
+Enter marks in Maths for Exam 2: 80
+Enter marks in Maths for Exam 3: 90
+Enter marks in Science for Exam 1: 35
+Enter marks in Science for Exam 2: 38
+Enter marks in Science for Exam 3: 36
+Enter marks in English for Exam 1: 60
+Enter marks in English for Exam 2: 65
+Enter marks in English for Exam 3: 70
+```
 
-    print(f"\nOverall Average: {overall:.2f}")
-    print(f"Student Classification: {category}")
+## 6. Sample Output
 
+text
+
+```
+EXAMINATION AVERAGES
+Exam 1: 55.00
+Exam 2: 61.00
+Exam 3: 65.33
+
+PERFORMANCE TRENDS
+Exam 1 to Exam 2: Improved by 6.00
+Exam 2 to Exam 3: Improved by 4.33
+
+CONSISTENTLY WEAK SUBJECTS
+Science
+
+Overall Average: 60.44
+Student Classification: Good
+```
+
+## 7. Result
+
+The Python program successfully compares examination scores, calculates performance improvements and declines, identifies consistently weak subjects, and classifies the student based on the overall average marks.
