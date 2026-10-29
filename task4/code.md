@@ -1,4 +1,4 @@
-# University Scholarship Allocation Using Python
+
 
 ## 1. Problem Statement
 
