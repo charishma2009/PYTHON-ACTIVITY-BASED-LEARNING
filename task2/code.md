@@ -82,6 +82,3 @@ Overall Average: 60.44
 Student Classification: Good
 ```
 
-## 7. Result
-
-The Python program successfully compares examination scores, calculates performance improvements and declines, identifies consistently weak subjects, and classifies the student based on the overall average marks.
