@@ -32,7 +32,7 @@ The program should display eligible applicants, their ranks, and rejected applic
 9. Display the eligible scholarship list and rejected applicants.
 10. Stop the program.
 
-## 3. Simple Flowchart 
+## 3.  Flowchart 
 
 ```mermaid
 
