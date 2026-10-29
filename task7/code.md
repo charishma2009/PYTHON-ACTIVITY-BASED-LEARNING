@@ -27,7 +27,7 @@ The program should:
 10. Display the area-wise water distribution report.
 11. Stop the program.
 
-## 3. Simple Flowchart 
+## 3. Flowchart 
 
 ```mermaid
 
@@ -48,7 +48,7 @@ flowchart TD
     E --> M
 ```
 
-## 4. Simple Python Source Code
+## 4. Python Source Code
 
 python
 
