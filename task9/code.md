@@ -1,4 +1,4 @@
-# Comprehensive Smart Campus Management Simulation Using Python
+## Comprehensive Smart Campus Management Simulation Using Python
 ## 1. problem statement 
 Comprehensive Smart Campus Management Simulation: Develop a menu-driven program that integrates student records, attendance, marks, event registration, resource allocation, and summary reporting using conditional statements, loops, strings, lists, nested lists, tuples, and tuple unpacking
 
@@ -92,7 +92,7 @@ The following is an example of how to interact with the program.
 
 Step 1: Add a student
 
-text
+
 
 ```
 Enter your choice: 1
@@ -195,7 +195,7 @@ Resource Allocated Successfully!
 
 Step 6: Generate summary report
 
-text
+
 
 ```
 Enter your choice: 6
