@@ -1,7 +1,7 @@
 # Student Performance Trend Analysis Using Python
 
 ## 1. Problem Statement
-
+Student Performance Trend Analysis: Compare assessment scores across multiple examinations, calculate improvements and declines, identify consistently weak subjects, and classify students according to defined criteria
 
 ## 2. Algorithm
 
@@ -20,7 +20,7 @@
 9. Display examination averages, performance trends, weak subjects, and student classification.
 10. Stop the program.
 
-## 3. Simple Flowchart 
+## 3.  Flowchart 
 
 ```mermaid
 
