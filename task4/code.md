@@ -1,19 +1,8 @@
-
+University Scholarship Allocation System
 
 ## 1. Problem Statement
+University Scholarship Allocation: Design a system that evaluates applicants using aggregate marks, subject-wise minimum scores, attendance, and income criteria, ranks eligible students, and resolves ties using predefined rules
 
-Develop a Python program to allocate university scholarships based on students' academic performance, attendance, and family income.
-
-The system should evaluate applicants using the following criteria:
-
-- Aggregate marks: At least 75%.
-- Subject-wise minimum marks: At least 60% in every subject.
-- Attendance: At least 75%.
-- Annual family income: Not more than ₹2,50,000.
-- Ranking: Eligible students are ranked by aggregate marks in descending order.
-- Tie-breaking rules: If aggregate marks are equal, prefer higher attendance. If attendance is also equal, prefer lower family income. If all three are equal, rank by applicant ID in alphabetical order.
-
-The program should display eligible applicants, their ranks, and rejected applicants with the reasons for rejection.
 
 ## 2. Algorithm
 
