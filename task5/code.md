@@ -1,4 +1,4 @@
-                Progressive Electricity Billing System
+## Progressive Electricity Billing System
 
 
 ## 1. Problem Statement
