@@ -1,17 +1,8 @@
+Water Distribution Fairness Analysis System
 
 
 ## 1. Problem Statement
-
-Develop a Python program to analyze water distribution across multiple areas over several days. The program should compare the actual water supplied with the required demand, calculate shortages, measure the percentage of demand fulfilled, and identify the most underserved areas.
-
-The program should:
-
-- Accept water demand and actual supply for each area over several days.
-- Calculate daily water shortages.
-- Calculate total demand, total supply, and total shortage for each area.
-- Calculate the percentage of demand fulfilled.
-- Compare distribution levels across areas.
-- Identify the most underserved area based on the lowest demand fulfillment percentage.
+ Water Distribution Fairness Analysis: Analyse area-wise water supply across several days, calculate shortages against demand, compare distribution levels, and identify the most underserved areas
 
 ## 2. Algorithm
 
