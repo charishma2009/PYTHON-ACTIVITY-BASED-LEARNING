@@ -23,7 +23,7 @@ ATM Transaction Sequence Simulation: Process a sequence of deposits and withdraw
 6. Display the transaction summary.
 7. Stop the program.
 
-## 3. Simple Flowchart 
+## 3.  Flowchart 
 
 ```mermaid
 
