@@ -45,7 +45,7 @@ flowchart TD
 
 ## 5. Sample Input
 
-text
+
 
 ```
 Enter subject names separated by spaces: Maths Science English
@@ -63,7 +63,7 @@ Enter marks in English for Exam 3: 70
 
 ## 6. Sample Output
 
-text
+
 
 ```
 EXAMINATION AVERAGES
