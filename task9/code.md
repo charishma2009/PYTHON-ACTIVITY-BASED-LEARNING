@@ -224,13 +224,4 @@ Event Registrations: 1
 Resource Allocations: 1
 ```
 
-Step 7: Exit the program
-
-text
-
-```
-Enter your choice: 7
-
-Thank you for using Smart Campus System!
-```
 
