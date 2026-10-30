@@ -47,7 +47,7 @@ flowchart TD
 
 ## 5. Sample Input
 
-text
+
 
 ```
 Enter patient ID: P101
@@ -59,7 +59,7 @@ Enter payment amount: 3000
 
 ## 6. Sample Output
 
-text
+
 
 ```
 Total bill: Rs. 5500.0
