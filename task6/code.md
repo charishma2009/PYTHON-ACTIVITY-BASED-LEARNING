@@ -1,20 +1,9 @@
+Hospital Billing and Patient Classification System
 
 
 ## 1. Problem Statement
 
-Develop a Python program to calculate hospital bills based on consultation, diagnostic, and treatment charges. The program should apply conditional concessions, validate billing constraints, and classify patients according to a payment policy.
-
-The program uses the following example policy:
-
-- Consultation charge: ₹500.
-- Diagnostic charge: ₹1,000.
-- Treatment charge: Entered by the user.
-- Concession: 10% discount on the total bill if the patient is a senior citizen (age 60 or above).
-- Payment classification:
-  - Low: Final bill below ₹2,000.
-  - Medium: Final bill from ₹2,000 to ₹5,000 inclusive.
-  - High: Final bill above ₹5,000.
-- Billing constraints: Age must be positive, charges must be non-negative, and payment cannot exceed the final bill.
+Hospital Billing and Patient Classification: Process consultation, diagnostic, and treatment charges, apply conditional concessions, validate billing constraints, and classify patients according to a supplied payment policy
 
 ## 2. Algorithm
 
@@ -30,7 +19,7 @@ The program uses the following example policy:
 10. Display the billing statement and patient classification.
 11. Stop the program.
 
-## 3. Simple Flowchart 
+## 3.  Flowchart 
 
 ```mermaid
 
