@@ -1,19 +1,10 @@
+Library Borrowing and Fine Reconciliation Using Python
 
 
 ## 1. Problem Statement
+Library Borrowing and Fine Reconciliation: Analyse tuples representing book identifiers, borrowing periods, and return delays; calculate fines, identify overdue records, and reconcile book availability
 
-Develop a Python program to manage library borrowing records using tuples containing book identifiers, borrowing periods, and return delays.
 
-The program should calculate fines for overdue books, identify overdue records, and reconcile book availability by determining whether each book has been returned.
-
-Rules used in this program:
-
-- Each book has a unique book ID.
-- The standard borrowing period is 14 days.
-- The fine is ₹5 per overdue day.
-- If the return delay is zero, the book is considered returned on time.
-- If the return delay is greater than zero, the book is overdue.
-- A book is available only if it has been returned.
 
 ## 2. Algorithm
 
@@ -29,7 +20,7 @@ Rules used in this program:
 10. Calculate and display the total fine.
 11. Stop the program.
 
-## 3. Simple Flowchart
+## 3.  Flowchart
 
 
 
