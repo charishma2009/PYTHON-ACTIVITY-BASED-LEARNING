@@ -1,118 +1,236 @@
-
-
-## 1. Problem Statement
-
-Develop a Python program to allocate limited disaster relief supplies to different affected areas based on their requirements and urgency.
-
-The program should:
-
-- Accept the available stock of each relief item, such as food packets, water bottles, and medical kits.
-- Accept the requirements of each affected area.
-- Assign a priority level to each area: High, Medium, or Low.
-- Allocate supplies to high-priority areas first, followed by medium- and low-priority areas.
-- Ensure that allocations never exceed the available stock.
-- Calculate the remaining stock and unmet demand for each area.
-- Display a final relief allocation report.
-
-Allocation policy: Process areas in descending priority order: High, Medium, then Low. If two areas have the same priority, process them in the order entered. For each area, allocate each supply item up to its remaining requirement and the available stock.
+# Comprehensive Smart Campus Management Simulation Using Python
+## 1. problem statement 
+Comprehensive Smart Campus Management Simulation: Develop a menu-driven program that integrates student records, attendance, marks, event registration, resource allocation, and summary reporting using conditional statements, loops, strings, lists, nested lists, tuples, and tuple unpacking
 
 ## 2. Algorithm
 
 1. Start the program.
-2. Input the number of supply types, affected areas, and available stock for each supply.
-3. Input each area's name, priority, and required quantity of every supply type.
-4. Assign priority values: High = 1, Medium = 2, Low = 3.
-5. Sort the areas by priority.
-6. For each area:
-   - Compare its requirements with the remaining stock.
-   - Allocate the smaller of the required quantity and available stock.
-   - Update the available stock.
-   - Calculate the unmet demand.
-7. Display the allocation for every area.
-8. Display remaining stock and total unmet demand for each supply type.
-9. Stop the program.
+2. Initialize empty lists for student records, attendance, marks, event registrations, and resource allocations.
+3. Display the main menu.
+4. Ask the user to select an operation.
+5. Perform the selected operation using conditional statements.
 
-## 3.  Flowchart
+Student Records:
+
+- Accept student ID, name, and department.
+- Store student information in a list.
+- Display or search student records.
+
+Attendance Management:
+
+- Accept student ID and attendance status.
+- Store attendance records.
+- Calculate attendance percentage.
+
+Marks Management:
+
+- Accept student ID and subject-wise marks.
+- Calculate total marks and average.
+- Assign grades based on average marks.
+
+Event Registration:
+
+- Display available campus events.
+- Accept student ID and event name.
+- Register the student for the selected event.
+
+Resource Allocation:
+
+- Display available campus resources.
+- Accept student ID and resource name.
+- Allocate the resource if it is available.
+
+Summary Reporting:
+
+- Display student details.
+- Display attendance percentage.
+- Display academic performance.
+- Display event registrations.
+- Display allocated resources.
+
+6. Repeat the menu until the user selects Exit.
+7. Display an exit message.
+8. Stop the program.
+
+## 3. Flowchart
+
 
 ```mermaid
 
 flowchart TD
-    A([Start]) --> B[Input available supplies]
-    B --> C[Input area requirements and priorities]
-    C --> D[Sort areas by priority]
-    D --> E[Select next area]
-    E --> F[Select supply item]
-    F --> G{Stock available?}
-    G -- Yes --> H[Allocate minimum of stock and demand]
-    G -- No --> I[Allocate zero]
-    H --> J[Update stock and unmet demand]
-    I --> J
-    J --> K{More supply items?}
-    K -- Yes --> F
-    K -- No --> L{More areas?}
-    L -- Yes --> E
-    L -- No --> M[Display allocation report]
-    M --> N[Display remaining stock and unmet demand]
-    N --> O([Stop])
+    A([Start]) --> B[Initialize campus data lists]
+    B --> C[Display Main Menu]
+    C --> D[/Enter Menu Choice/]
+
+    D --> E{Select Operation}
+
+    E -->|1| F[Add or View Student Records]
+    E -->|2| G[Manage Attendance]
+    E -->|3| H[Manage Student Marks]
+    E -->|4| I[Manage Event Registration]
+    E -->|5| J[Allocate Campus Resources]
+    E -->|6| K[Generate Summary Report]
+    E -->|7| L([Exit])
+    E -->|Invalid| M[Display Invalid Choice]
+
+    F --> N[Return to Main Menu]
+    G --> N
+    H --> N
+    I --> N
+    J --> N
+    K --> N
+    M --> N
+
+    N --> C
+    L --> O([Stop])
 ```
 
 
 ## 5. Sample Input
 
+The following is an example of how to interact with the program.
+
+Step 1: Add a student
+
 text
 
 ```
-Enter supply names separated by spaces: Food Water
+Enter your choice: 1
 
-Available stock of Food: 100
-Available stock of Water: 80
+--- STUDENT MANAGEMENT ---
+1. Add Student
+2. View Students
+3. Search Student
 
-Enter number of affected areas: 3
+Enter choice: 1
+Enter Student ID: 101
+Enter Student Name: Arun
+Enter Department: CSE
 
-Area 1
-Area name: North
-Priority (High/Medium/Low): High
-Food required: 60
-Water required: 50
+Student added successfully!
+```
 
-Area 2
-Area name: South
-Priority (High/Medium/Low): Medium
-Food required: 50
-Water required: 40
+Step 2: Record attendance
 
-Area 3
-Area name: East
-Priority (High/Medium/Low): Low
-Food required: 30
-Water required: 20
+text
+
+```
+Enter your choice: 2
+
+--- ATTENDANCE MANAGEMENT ---
+
+Enter Student ID: 101
+Enter Present Days: 45
+Enter Total Working Days: 50
+
+Attendance Recorded!
+Attendance Percentage: 90.0 %
+```
+
+Step 3: Enter marks
+
+text
+
+```
+Enter your choice: 3
+
+--- MARKS MANAGEMENT ---
+
+Enter Student ID: 101
+Enter Number of Subjects: 3
+Enter marks for Subject 1: 90
+Enter marks for Subject 2: 85
+Enter marks for Subject 3: 95
+
+Total Marks: 270.0
+Average: 90.0
+Grade: A+
+```
+
+Step 4: Register for an event
+
+text
+
+```
+Enter your choice: 4
+
+--- EVENT REGISTRATION ---
+
+Enter Student ID: 101
+
+Available Events:
+1. Technical Fest
+2. Sports Day
+3. Cultural Fest
+4. Science Exhibition
+
+Enter Event Name: Technical Fest
+
+Event Registration Successful!
+```
+
+Step 5: Allocate a resource
+
+text
+
+```
+Enter your choice: 5
+
+--- RESOURCE ALLOCATION ---
+
+Enter Student ID: 101
+
+Available Resources:
+1. Computer Lab
+2. Seminar Hall
+3. Sports Ground
+4. Library
+
+Enter Resource Name: Computer Lab
+
+Resource Allocated Successfully!
 ```
 
 ## 6. Sample Output
 
+Step 6: Generate summary report
+
 text
 
 ```
-===== RELIEF ALLOCATION REPORT =====
+Enter your choice: 6
 
-Area: North | Priority: High
-Food: Required=60, Allocated=60, Unmet=0
-Water: Required=50, Allocated=50, Unmet=0
+========== SMART CAMPUS SUMMARY ==========
 
-Area: South | Priority: Medium
-Food: Required=50, Allocated=40, Unmet=10
-Water: Required=40, Allocated=30, Unmet=10
+Student ID: 101
+Name: Arun
+Department: CSE
 
-Area: East | Priority: Low
-Food: Required=30, Allocated=0, Unmet=30
-Water: Required=20, Allocated=0, Unmet=20
+Attendance: 90.0 %
 
-===== REMAINING STOCK =====
-Food : 0
-Water : 0
+Subject Marks: [90.0, 85.0, 95.0]
+Average Marks: 90.0
 
-===== TOTAL UNMET DEMAND =====
-Food : 40
-Water : 30
+Registered Events: ['Technical Fest']
+
+Allocated Resources: ['Computer Lab']
+
+========== CAMPUS STATISTICS ==========
+
+Total Students: 1
+Attendance Records: 1
+Marks Records: 1
+Event Registrations: 1
+Resource Allocations: 1
+```
+
+Step 7: Exit the program
+
+text
+
+```
+Enter your choice: 7
+
+Thank you for using Smart Campus System!
 ```
 
