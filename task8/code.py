@@ -1,216 +1,87 @@
 
+# Repeated Word and Phrase Detection
 
-students = []
-attendance = []       
-marks = []            
-registrations = []  
-allocations = []     
+# Step 1: Get paragraph from user
+paragraph = input("Enter a paragraph: ")
 
-resources = [
-    ["Computer Lab", 2],
-    ["Library Book", 5],
-    ["Sports Kit", 3]
-]
+# Step 2: Convert to lowercase
+paragraph = paragraph.lower()
 
-while True:
-    print("\n===== SMART CAMPUS MANAGEMENT =====")
-    print("1. Add student")
-    print("2. Record attendance")
-    print("3. Enter examination marks")
-    print("4. Register for event")
-    print("5. Allocate resource")
-    print("6. Summary report")
-    print("7. Exit")
+# Step 3: Remove punctuation
+for symbol in ".,!?;:\"'()[]{}":
+    paragraph = paragraph.replace(symbol, "")
 
-    choice = input("Enter your choice: ")
+# Step 4: Split paragraph into words
+words = paragraph.split()
 
-    if choice == "1":
-        sid = input("Enter student ID: ")
-        exists = False
+# Step 5: Find unique words
+unique_words = []
 
-        for student_id, name, dept in students:
-            if student_id == sid:
-                exists = True
+for word in words:
+    if word not in unique_words:
+        unique_words.append(word)
 
-        if exists:
-            print("Student ID already exists")
-        else:
-            name = input("Enter student name: ")
-            dept = input("Enter department: ")
-            students.append((sid, name, dept))
-            print("Student added successfully")
+# Step 6: Detect repeated words
+print("\n--- REPEATED WORDS ---")
 
-    elif choice == "2":
-        sid = input("Enter student ID: ")
-        found = False
+found = False
 
-        for student_id, name, dept in students:
-            if student_id == sid:
-                found = True
-                break
+for word in unique_words:
+    count = words.count(word)
 
-        if not found:
-            print("Student not found")
-        else:
-            attended = int(input("Classes attended: "))
-            total = int(input("Total classes: "))
+    if count > 1:
+        found = True
 
-            if total <= 0 or attended < 0 or attended > total:
-                print("Invalid attendance details")
-            else:
-                updated = False
+        # Find positions (1-based indexing)
+        positions = []
 
-                for record in attendance:
-                    if record[0] == sid:
-                        record[1] = attended
-                        record[2] = total
-                        updated = True
+        for i in range(len(words)):
+            if words[i] == word:
+                positions.append(i + 1)
 
-                if not updated:
-                    attendance.append([sid, attended, total])
+        print("Word:", word)
+        print("Occurrences:", count)
+        print("Positions:", positions)
 
-                percentage = attended / total * 100
-                print("Attendance:", round(percentage, 2), "%")
+if not found:
+    print("No repeated words found.")
 
-    elif choice == "3":
-        sid = input("Enter student ID: ")
-        found = False
+# Step 7: Generate consecutive two-word phrases
+phrases = []
 
-        for student_id, name, dept in students:
-            if student_id == sid:
-                found = True
-                break
+for i in range(len(words) - 1):
+    phrase = words[i] + " " + words[i + 1]
+    phrases.append(phrase)
 
-        if not found:
-            print("Student not found")
-        else:
-            scores = []
-            valid = True
+# Step 8: Find unique phrases
+unique_phrases = []
 
-            for i in range(3):
-                score = float(input(f"Enter mark {i + 1}: "))
-                if score < 0 or score > 100:
-                    valid = False
-                scores.append(score)
+for phrase in phrases:
+    if phrase not in unique_phrases:
+        unique_phrases.append(phrase)
 
-            if not valid:
-                print("Invalid marks. Enter values from 0 to 100.")
-            else:
-                updated = False
+# Step 9: Detect repeated phrases
+print("\n--- REPEATED PHRASES ---")
 
-                for record in marks:
-                    if record[0] == sid:
-                        record[1] = scores
-                        updated = True
+phrase_found = False
 
-                if not updated:
-                    marks.append([sid, scores])
+for phrase in unique_phrases:
+    count = phrases.count(phrase)
 
-                print("Average marks:", round(sum(scores) / 3, 2))
+    if count > 1:
+        phrase_found = True
 
-    elif choice == "4":
-        sid = input("Enter student ID: ")
-        found = False
+        positions = []
 
-        for student_id, name, dept in students:
-            if student_id == sid:
-                found = True
-                break
+        for i in range(len(phrases)):
+            if phrases[i] == phrase:
+                positions.append(i + 1)
 
-        if not found:
-            print("Student not found")
-        else:
-            event = input("Enter event name: ")
-            registration = (sid, event)
+        print("Phrase:", phrase)
+        print("Occurrences:", count)
+        print("Positions:", positions)
 
-            if registration in registrations:
-                print("Already registered")
-            else:
-                registrations.append(registration)
-                print("Event registration successful")
+if not phrase_found:
+    print("No repeated phrases found.")
 
-    elif choice == "5":
-        sid = input("Enter student ID: ")
-        found = False
-
-        for student_id, name, dept in students:
-            if student_id == sid:
-                found = True
-                break
-
-        if not found:
-            print("Student not found")
-        else:
-            print("Available resources:")
-
-            for resource in resources:
-                used = 0
-
-                for allocated_id, resource_name in allocations:
-                    if resource_name == resource[0]:
-                        used += 1
-
-                available = resource[1] - used
-                print(resource[0], "- Available:", available)
-
-            requested = input("Enter resource name: ")
-            matched = False
-
-            for resource in resources:
-                if resource[0].lower() == requested.lower():
-                    matched = True
-                    used = 0
-
-                    for allocated_id, resource_name in allocations:
-                        if resource_name == resource[0]:
-                            used += 1
-
-                    if used < resource[1]:
-                        allocations.append((sid, resource[0]))
-                        print("Resource allocated successfully")
-                    else:
-                        print("Resource not available")
-
-            if not matched:
-                print("Invalid resource name")
-
-    elif choice == "6":
-        print("\n===== CAMPUS SUMMARY REPORT =====")
-
-        print("\nStudent Records:")
-        for student_id, name, dept in students:
-            print(student_id, name, dept)
-
-        print("\nAttendance:")
-        for sid, attended, total in attendance:
-            print(sid, round(attended / total * 100, 2), "%")
-
-        print("\nExamination Marks:")
-        for sid, scores in marks:
-            print(sid, scores, "Average:", round(sum(scores) / 3, 2))
-
-        print("\nEvent Registrations:")
-        for sid, event in registrations:
-            print(sid, event)
-
-        print("\nResource Allocations:")
-        for sid, resource in allocations:
-            print(sid, resource)
-
-        print("\nAvailable Resources:")
-        for resource in resources:
-            used = 0
-
-            for sid, resource_name in allocations:
-                if resource_name == resource[0]:
-                    used += 1
-
-            print(resource[0], resource[1] - used, "available")
-
-    elif choice == "7":
-        print("Exiting Smart Campus Management System")
-        break
-
-    else:
-        print("Invalid choice. Please try again.")
 
