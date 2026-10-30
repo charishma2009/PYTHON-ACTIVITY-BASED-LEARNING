@@ -51,7 +51,7 @@ flowchart TD
 
 The following example uses three subjects per applicant.
 
-text
+
 
 ```
 Enter number of applicants: 4
@@ -96,7 +96,7 @@ Annual family income: 150000
 
 ## 6. Sample Output
 
-text
+
 
 ```
 ===== ELIGIBLE SCHOLARSHIP APPLICANTS =====
