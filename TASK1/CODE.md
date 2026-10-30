@@ -52,7 +52,7 @@ flowchart TD
 
 ## 5. Sample Input
 
-text
+
 
 ```
 Enter number of transactions: 5
@@ -80,7 +80,7 @@ Enter amount: 1000
 
 ## 6. Sample Output
 
-text
+
 
 ```
 Transaction 1
