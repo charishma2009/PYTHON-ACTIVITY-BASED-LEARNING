@@ -1,18 +1,9 @@
+                Progressive Electricity Billing System
 
 
 ## 1. Problem Statement
 
-Develop a Python program to calculate household electricity bills for multiple months using progressive consumption slabs, fixed charges, surcharges, and rebates. The program should compare monthly bills and identify unusual increases in electricity expenses.
-
-The program uses these example billing rules:
-
-- First 100 units: ₹2 per unit.
-- Next 100 units: ₹3 per unit.
-- Above 200 units: ₹5 per unit.
-- Fixed monthly charge: ₹100.
-- Surcharge: 5% of the energy charge when consumption exceeds 200 units.
-- Rebate: 5% of the energy charge when consumption is 100 units or less.
-- An increase of more than 30% compared with the previous month's bill is considered unusual.
+Progressive Electricity Billing: Calculate household bills using multiple consumption slabs, fixed charges, surcharges, and rebates, then compare bills across several months and identify unusual increases
 
 ## 2. Algorithm
 
@@ -28,7 +19,7 @@ The program uses these example billing rules:
 10. Display the monthly billing report.
 11. Stop the program.
 
-## 3. Simple Flowchart 
+## 3. Flowchart 
 
 ```mermaid
 
