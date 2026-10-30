@@ -1,24 +1,8 @@
 # Multi-Route Courier Dispatch Planning Using Python
 
 ## 1. Problem Statement
+Multi-Route Courier Dispatch Planning: Process package weights, destination zones, vehicle capacities, and delivery priorities; allocate packages to vehicles and identify packages that cannot be dispatched
 
-Develop a Python program to plan courier deliveries by processing package weights, destination zones, vehicle capacities, and delivery priorities.
-
-The program should:
-
-- Accept package details, including package ID, weight, destination zone, and priority.
-- Accept vehicle details, including vehicle ID and maximum weight capacity.
-- Allocate packages to suitable vehicles based on destination zone, delivery priority, and available capacity.
-- Give higher-priority packages preference during allocation.
-- Identify packages that cannot be dispatched because no suitable vehicle has enough remaining capacity.
-- Display the final vehicle assignments and undispatched packages.
-
-Assumptions:
-
-- Each vehicle serves one destination zone per dispatch.
-- Package priority is classified as High, Medium, or Low.
-- Vehicles have a fixed maximum weight capacity.
-- Packages are allocated in descending priority order.
 
 ## 2. Algorithm
 
@@ -36,7 +20,7 @@ Assumptions:
 8. Display the list of undispatched packages.
 9. Stop the program.
 
-## 3. Simple Flowchart 
+## 3.  Flowchart 
 ```mermaid
 
 flowchart TD
