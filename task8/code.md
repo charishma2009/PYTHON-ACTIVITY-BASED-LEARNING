@@ -1,61 +1,145 @@
-
+# Repeated Word and Phrase Detection Using Python
 
 ## 1. Problem Statement
+Repeated Word and Phrase Detection: Process a paragraph, normalize letter case, count word occurrences using permitted string and list operations, and identify repeated words and their positions
 
-Develop a menu-driven Python program to simulate a smart campus management system. The system should integrate student records, attendance tracking, examination marks, event registration, resource allocation, and summary reporting.
-
-The program should use fundamental Python concepts, including variables, data types, operators, conditional statements, loops, strings, lists, nested lists, tuples, and tuple unpacking.
-
-The system should provide the following features:
-
-- Student records: Add and display student IDs, names, and departments.
-- Attendance management: Record attendance and calculate attendance percentages.
-- Marks management: Store examination marks and calculate student averages.
-- Event registration: Register students for campus events.
-- Resource allocation: Allocate available campus resources to students.
-- Summary reporting: Display student details, attendance, marks, event registrations, and resource allocations.
 
 ## 2. Algorithm
 
 1. Start the program.
-2. Initialize lists for student records, attendance, marks, events, and resources.
-3. Display the main menu.
-4. Accept the user's choice.
-5. Perform the selected operation:
-   - Add or display student records.
-   - Record attendance and calculate attendance percentage.
-   - Enter examination marks and calculate averages.
-   - Register a student for an event.
-   - Allocate an available resource to a student.
-   - Generate a summary report.
-6. Validate IDs, marks, attendance, event names, and resource availability.
-7. Return to the main menu after each operation.
-8. Repeat until the user selects Exit.
-9. Stop the program.
+2. Read a paragraph from the user.
+3. Convert the entire paragraph into lowercase using `lower()`.
+4. Remove punctuation using string operations.
+5. Split the paragraph into individual words using `split()`.
+6. Create an empty list to store unique words.
+7. Traverse each word in the word list.
+8. Count each word's occurrences using the `count()` function.
+9. If the count is greater than one, identify it as a repeated word.
+10. Find and display the positions of repeated words using list operations.
+11. Generate consecutive two-word phrases.
+12. Count phrase occurrences and identify repeated phrases.
+13. Display the repeated words, their counts, positions, and repeated phrases.
+14. Stop the program.
 
-## 3.  Flowchart
+## 3. Flowchart 
+
+
 
 ```mermaid
 
 flowchart TD
-    A([Start]) --> B[Initialize campus records]
-    B --> C[Display menu]
-    C --> D[Enter choice]
-    D --> E{Selected option}
-    E -- 1 --> F[Manage student records]
-    E -- 2 --> G[Record attendance]
-    E -- 3 --> H[Enter examination marks]
-    E -- 4 --> I[Register for event]
-    E -- 5 --> J[Allocate campus resource]
-    E -- 6 --> K[Generate summary report]
-    F --> L{Exit selected?}
-    G --> L
-    H --> L
-    I --> L
-    J --> L
-    K --> L
-    L -- No --> C
-    L -- Yes --> M([Stop])
+    A([Start]) --> B[/Enter a paragraph/]
+    B --> C[Convert paragraph to lowercase]
+    C --> D[Remove punctuation]
+    D --> E[Split paragraph into words]
+    E --> F[Initialize empty unique word list]
+    F --> G{More words?}
+    G -- Yes --> H[Get next word]
+    H --> I{Word already in unique list?}
+    I -- No --> J[Add word to unique list]
+    I -- Yes --> G
+    J --> G
+    G -- No --> K[Count occurrences of each word]
+    K --> L{Count greater than 1?}
+    L -- Yes --> M[Find and display word positions]
+    L -- No --> N[Check next word]
+    M --> N
+    N --> O[Generate consecutive two-word phrases]
+    O --> P[Count repeated phrases]
+    P --> Q[Display repeated words and phrases]
+    Q --> R([Stop])
+```
+
+## 4. Source Code (Python)
+
+python
+
+```
+
+# Repeated Word and Phrase Detection
+
+# Step 1: Get paragraph from user
+paragraph = input("Enter a paragraph: ")
+
+# Step 2: Convert to lowercase
+paragraph = paragraph.lower()
+
+# Step 3: Remove punctuation
+for symbol in ".,!?;:\"'()[]{}":
+    paragraph = paragraph.replace(symbol, "")
+
+# Step 4: Split paragraph into words
+words = paragraph.split()
+
+# Step 5: Find unique words
+unique_words = []
+
+for word in words:
+    if word not in unique_words:
+        unique_words.append(word)
+
+# Step 6: Detect repeated words
+print("\n--- REPEATED WORDS ---")
+
+found = False
+
+for word in unique_words:
+    count = words.count(word)
+
+    if count > 1:
+        found = True
+
+        # Find positions (1-based indexing)
+        positions = []
+
+        for i in range(len(words)):
+            if words[i] == word:
+                positions.append(i + 1)
+
+        print("Word:", word)
+        print("Occurrences:", count)
+        print("Positions:", positions)
+
+if not found:
+    print("No repeated words found.")
+
+# Step 7: Generate consecutive two-word phrases
+phrases = []
+
+for i in range(len(words) - 1):
+    phrase = words[i] + " " + words[i + 1]
+    phrases.append(phrase)
+
+# Step 8: Find unique phrases
+unique_phrases = []
+
+for phrase in phrases:
+    if phrase not in unique_phrases:
+        unique_phrases.append(phrase)
+
+# Step 9: Detect repeated phrases
+print("\n--- REPEATED PHRASES ---")
+
+phrase_found = False
+
+for phrase in unique_phrases:
+    count = phrases.count(phrase)
+
+    if count > 1:
+        phrase_found = True
+
+        positions = []
+
+        for i in range(len(phrases)):
+            if phrases[i] == phrase:
+                positions.append(i + 1)
+
+        print("Phrase:", phrase)
+        print("Occurrences:", count)
+        print("Positions:", positions)
+
+if not phrase_found:
+    print("No repeated phrases found.")
 ```
 
 ## 5. Sample Input
@@ -63,33 +147,10 @@ flowchart TD
 text
 
 ```
-Enter your choice: 1
-Enter student ID: S101
-Enter student name: Ravi
-Enter department: CSE
+Enter a paragraph:
 
-Enter your choice: 2
-Enter student ID: S101
-Classes attended: 45
-Total classes: 50
-
-Enter your choice: 3
-Enter student ID: S101
-Enter mark 1: 85
-Enter mark 2: 90
-Enter mark 3: 80
-
-Enter your choice: 4
-Enter student ID: S101
-Enter event name: Tech Fest
-
-Enter your choice: 5
-Enter student ID: S101
-Enter resource name: Computer Lab
-
-Enter your choice: 6
-
-Enter your choice: 7
+Python is easy to learn. Python is powerful.
+Learning Python is easy and learning Python is fun.
 ```
 
 ## 6. Sample Output
@@ -97,43 +158,37 @@ Enter your choice: 7
 text
 
 ```
-Student added successfully
+--- REPEATED WORDS ---
 
-Attendance: 90.0 %
+Word: python
+Occurrences: 4
+Positions: [1, 5, 9, 13]
 
-Average marks: 85.0
+Word: is
+Occurrences: 4
+Positions: [2, 6, 10, 14]
 
-Event registration successful
+Word: easy
+Occurrences: 2
+Positions: [3, 11]
 
-Available resources:
-Computer Lab - Available: 2
-Library Book - Available: 5
-Sports Kit - Available: 3
+Word: to
+Occurrences: 1
 
-Resource allocated successfully
+Word: learn
+Occurrences: 1
 
-===== CAMPUS SUMMARY REPORT =====
+Word: powerful
+Occurrences: 1
 
-Student Records:
-S101 Ravi CSE
+Word: learning
+Occurrences: 2
+Positions: [8, 12]
 
-Attendance:
-S101 90.0 %
+--- REPEATED PHRASES ---
 
-Examination Marks:
-S101 [85.0, 90.0, 80.0] Average: 85.0
-
-Event Registrations:
-S101 Tech Fest
-
-Resource Allocations:
-S101 Computer Lab
-
-Available Resources:
-Computer Lab 1 available
-Library Book 5 available
-Sports Kit 3 available
-
-Exiting Smart Campus Management System
+No repeated phrases found.
 ```
+
+
 
