@@ -1,4 +1,4 @@
-Library Borrowing and Fine Reconciliation Using Python
+## Library Borrowing and Fine Reconciliation Using Python
 
 
 ## 1. Problem Statement
@@ -50,8 +50,6 @@ flowchart TD
 ## 5. Sample Input
 
 text
-
-```
 Enter number of borrowing records: 3
 
 Record 1
@@ -71,13 +69,11 @@ Enter book ID: B103
 Enter borrowing period in days: 14
 Enter return delay in days: 5
 Has the book been returned? (yes/no): no
-```
 
 ## 6. Sample Output
 
 text
 
-```
 ===== LIBRARY RECONCILIATION REPORT =====
 
 Book ID: B101
@@ -105,5 +101,4 @@ Availability: Not available
 Total records: 3
 Overdue records: 2
 Total fines: Rs. 40
-```
 
