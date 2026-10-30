@@ -52,7 +52,7 @@ flowchart TD
 
 ## 5. Sample Input
 
-text
+
 
 ```
 Enter number of months: 3
@@ -69,7 +69,7 @@ Enter units consumed: 250
 
 ## 6. Sample Output
 
-text
+
 
 ```
 ===== ELECTRICITY BILL REPORT =====
